@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "UltraHD TV",
+      "brand": "VisionTech",
+      "category": "Electronics",
+      "price": 599.99,
+      "description": "50-inch UltraHD 4K LED TV with smart features.",
+      "imageFilename": "1.jpg",
+      "createdAt": "2024-09-01"
+    },
+    {
+      "id": 2,
+      "name": "Noise Cancelling Headphones",
+      "brand": "SoundPro",
+      "category": "Audio",
+      "price": 199.99,
+      "description": "Over-ear noise-cancelling headphones with Bluetooth.",
+      "imageFilename": "2.jpg",
+      "createdAt": "2024-08-15"
+    },
+    {
+      "id": 3,
+      "name": "Gaming Laptop",
+      "brand": "HyperTech",
+      "category": "Computers",
+      "price": 1299.99,
+      "description": "15.6-inch gaming laptop with NVIDIA RTX graphics.",
+      "imageFilename": "3.jpg",
+      "createdAt": "2024-07-30"
+    },
+    {
+      "id": 4,
+      "name": "Smartwatch X",
+      "brand": "WearX",
+      "category": "Wearables",
+      "price": 249.99,
+      "description": "Water-resistant smartwatch with heart-rate monitoring.",
+      "imageFilename": "4.jpg",
+      "createdAt": "2024-06-20"
+    },
+    {
+      "id": 5,
+      "name": "Electric Kettle",
+      "brand": "KitchenPro",
+      "category": "Home Appliances",
+      "price": 39.99,
+      "description": "1.7L electric kettle with auto shut-off feature.",
+      "imageFilename": "5.jpg",
+      "createdAt": "2024-05-18"
+    },
+    {
+      "id": 6,
+      "name": "Air Purifier",
+      "brand": "PureAir",
+      "category": "Home Appliances",
+      "price": 149.99,
+      "description": "HEPA air purifier for rooms up to 400 sq ft.",
+      "imageFilename": "6.jpg",
+      "createdAt": "2024-04-05"
+    },
+    {
+      "id": 7,
+      "name": "Wireless Mouse",
+      "brand": "TechGear",
+      "category": "Accessories",
+      "price": 29.99,
+      "description": "Ergonomic wireless mouse with adjustable DPI.",
+      "imageFilename": "7.jpg",
+      "createdAt": "2024-03-12"
+    },
+    {
+      "id": 8,
+      "name": "Bluetooth Speaker",
+      "brand": "SoundMax",
+      "category": "Audio",
+      "price": 59.99,
+      "description": "Portable Bluetooth speaker with 12-hour battery life.",
+      "imageFilename": "8.jpg",
+      "createdAt": "2024-02-28"
+    },
+    {
+      "id": 9,
+      "name": "Robot Vacuum",
+      "brand": "CleanBot",
+      "category": "Home Appliances",
+      "price": 299.99,
+      "description": "Smart robot vacuum cleaner with app control.",
+      "imageFilename": "9.jpg",
+      "createdAt": "2024-01-25"
+    },
+    {
+      "id": 10,
+      "name": "Electric Shaver",
+      "brand": "GroomEase",
+      "category": "Personal Care",
+      "price": 79.99,
+      "description": "Rechargeable electric shaver with precision blades.",
+      "imageFilename": "10.jpg",
+      "createdAt": "2024-03-05"
+    }
+  ]
+}
