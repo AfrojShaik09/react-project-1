@@ -1,4 +1,4 @@
-import productData from "../db.json" assert { type: "json" };
+import productData from "../db.json" with { type: "json" };
 import fs from "fs";
 
 export function deleteProduct(req, res) {
@@ -6,7 +6,7 @@ export function deleteProduct(req, res) {
   let products = productData.products;
 
   const productIndex = products.findIndex(
-    (product) => product.id === Number(id)
+    (product) => product.id === Number(id),
   );
 
   if (productIndex !== -1) {
@@ -20,7 +20,7 @@ export function deleteProduct(req, res) {
     try {
       fs.writeFileSync(
         "./db.json",
-        JSON.stringify({ ...productData, products: updatedProducts }, null, 2)
+        JSON.stringify({ ...productData, products: updatedProducts }, null, 2),
       );
 
       res.status(200).send({

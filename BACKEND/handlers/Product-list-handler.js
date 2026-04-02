@@ -1,4 +1,4 @@
-import productData from "../db.json" assert { type: "json" };
+import productData from "../db.json" with { type: "json" };
 
 const products = productData.products;
 

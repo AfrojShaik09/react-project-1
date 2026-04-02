@@ -1,4 +1,4 @@
-import productData from "../db.json" assert { type: "json" };
+import productData from "../db.json" with { type: "json" };
 import fs from "fs";
 
 const products = productData.products;
@@ -7,7 +7,7 @@ export function updateProduct(req, res) {
   const { id } = req.params;
   const updatedData = req.body;
   const productIndex = products.findIndex(
-    (product) => product.id === Number(id)
+    (product) => product.id === Number(id),
   );
 
   if (productIndex !== -1) {
@@ -20,7 +20,7 @@ export function updateProduct(req, res) {
     try {
       fs.writeFileSync(
         "./db.json",
-        JSON.stringify({ ...productData, products }, null, 2)
+        JSON.stringify({ ...productData, products }, null, 2),
       );
 
       res.status(200).send({

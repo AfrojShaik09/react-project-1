@@ -1,4 +1,4 @@
-import productData from "../db.json" assert { type: "json" };
+import productData from "../db.json" with { type: "json" };
 
 const products = productData.products;
 
@@ -11,9 +11,8 @@ export function searchProductsByName(req, res) {
       .send({ message: "Name query parameter is required." });
   }
 
-  
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(name.toLowerCase())
+    product.name.toLowerCase().includes(name.toLowerCase()),
   );
 
   if (filteredProducts.length > 0) {
