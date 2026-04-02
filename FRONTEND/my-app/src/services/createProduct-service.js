@@ -1,7 +1,7 @@
 export const handleAddProduct = async (data) => {
   console.log(data);
 
-  const url = "http://localhost:5000/api/products";
+  const url = `${process.env.REACT_APP_API_URL}/api/products`;
 
   try {
     const unFormattedResponse = await fetch(url, {
@@ -14,7 +14,7 @@ export const handleAddProduct = async (data) => {
 
     if (!unFormattedResponse.ok) {
       throw new Error(
-        `Failed to add product: ${unFormattedResponse.statusText}`
+        `Failed to add product: ${unFormattedResponse.statusText}`,
       );
     }
 

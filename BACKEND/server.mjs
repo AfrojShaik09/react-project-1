@@ -6,6 +6,7 @@ import { deleteProduct } from "./handlers/DeleteProduct-handler.js";
 import { updateProduct } from "./handlers/UpdateProduct-handler.js";
 import { searchProductsByName } from "./handlers/SearchProduct-handler.js";
 import { getActiveUsers, login, logout } from "./handlers/Userlist-handler.js";
+import cors from "cors";
 
 //import dotenv from "dotenv";
 //import mongoose from "mongoose"; // ✅ FIXED require → import
@@ -28,6 +29,7 @@ const PORT = 5000;
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
 // Routes
 app.get("/api/products", getProducts);

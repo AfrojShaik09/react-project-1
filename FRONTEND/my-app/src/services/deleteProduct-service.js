@@ -1,5 +1,5 @@
 export const deleteProduct = async (id) => {
-  const url = `http://localhost:5000/api/products/${id}`;
+  const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
 
   try {
     const unFormattedResponse = await fetch(url, {
@@ -11,7 +11,7 @@ export const deleteProduct = async (id) => {
 
     if (!unFormattedResponse.ok) {
       throw new Error(
-        `Failed to delete product: ${unFormattedResponse.statusText}`
+        `Failed to delete product: ${unFormattedResponse.statusText}`,
       );
     }
 

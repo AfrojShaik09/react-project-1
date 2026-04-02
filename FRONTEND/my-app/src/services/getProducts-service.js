@@ -1,5 +1,5 @@
 export const fetchProducts = async () => {
-  const url = "http://localhost:5000/api/products";
+  const url = `${process.env.REACT_APP_API_URL}/api/products`;
 
   try {
     const unFormattedResponse = await fetch(url, {

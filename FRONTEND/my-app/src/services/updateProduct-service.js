@@ -1,5 +1,5 @@
 export const updateProduct = async (id, updatedData) => {
-  const url = `http://localhost:5000/api/products/${id}`;
+  const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
 
   try {
     const response = await fetch(url, {
