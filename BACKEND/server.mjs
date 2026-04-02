@@ -10,19 +10,19 @@ import { getActiveUsers, login, logout } from "./handlers/Userlist-handler.js";
 //import dotenv from "dotenv";
 //import mongoose from "mongoose"; // ✅ FIXED require → import
 
-dotenv.config();
+//dotenv.config();
 
 const app = express();
 
 // ✅ MongoDB Connection (ESM compatible)
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected ✅");
-  })
-  .catch((err) => {
-    console.log("Error connecting DB ❌", err);
-  });
+//mongoose
+//.connect(process.env.MONGO_URI)
+//.then(() => {
+//console.log("MongoDB Connected ✅");
+//})
+//.catch((err) => {
+//console.log("Error connecting DB ❌", err);
+// });
 
 const PORT = 5000;
 
