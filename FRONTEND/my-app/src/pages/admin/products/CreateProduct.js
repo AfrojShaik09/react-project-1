@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProductForm from "../../../components/Form";
+import ProductForm from "../../../components/ProductForm";
 import { handleAddProduct } from "../../../services/createProduct-service";
+import "./CreateProduct.css";
 
 export default function CreateProduct() {
   const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "",
     brand: "",
@@ -16,21 +17,20 @@ export default function CreateProduct() {
   const validateForm = (product) => {
     let formErrors = {};
 
-    if (product.name.length < 3) {
-      formErrors.name = "Name should be at least 3 characters long.";
+    if (!product.name || product.name.trim().length < 3) {
+      formErrors.name = "Name must be at least 3 characters";
     }
 
-    if (product.brand.length < 3) {
-      formErrors.brand = "Brand should be at least 3 characters long.";
+    if (!product.brand || product.brand.trim().length < 3) {
+      formErrors.brand = "Brand must be at least 3 characters";
     }
 
-    if (isNaN(product.price) || product.price <= 0) {
-      formErrors.price = "Price should be a valid number greater than 0.";
+    if (isNaN(product.price) || parseFloat(product.price) <= 0) {
+      formErrors.price = "Price must be greater than 0";
     }
 
-    if (product.description.length < 10) {
-      formErrors.description =
-        "Description should be at least 10 characters long.";
+    if (!product.description || product.description.trim().length < 10) {
+      formErrors.description = "Description must be at least 10 characters";
     }
 
     return formErrors;
@@ -38,6 +38,7 @@ export default function CreateProduct() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setErrors({});
 
     const formData = new FormData(event.target);
     const product = Object.fromEntries(formData.entries());
@@ -49,20 +50,19 @@ export default function CreateProduct() {
       return;
     }
 
+    setIsLoading(true);
+
     const newProduct = {
-      name: product.name,
-      brand: product.brand,
+      name: product.name.trim(),
+      brand: product.brand.trim(),
       category: product.category,
       price: parseFloat(product.price),
-      description: product.description,
+      description: product.description.trim(),
       createdAt: new Date().toISOString(),
     };
 
     try {
-      const response = await handleAddProduct(newProduct);
-
-      console.log("Product created:", response);
-
+      await handleAddProduct(newProduct);
       navigate("/admin/products");
     } catch (error) {
       console.error("Error creating product:", error);
@@ -70,15 +70,20 @@ export default function CreateProduct() {
         ...errors,
         general: "Failed to create product. Please try again.",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <ProductForm
-      product={{}}
-      handleSubmit={handleSubmit}
-      errors={errors}
-      isEditMode={false}
-    />
+    <div className="create-product-page">
+      <ProductForm
+        product={{}}
+        handleSubmit={handleSubmit}
+        errors={errors}
+        isEditMode={false}
+        isLoading={isLoading}
+      />
+    </div>
   );
 }

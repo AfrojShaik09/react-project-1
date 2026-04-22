@@ -1,0 +1,140 @@
+.edit-product-page {
+  min-height: 100vh;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e5e5;
+  border-top: 4px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.error-box {
+  background: white;
+  border-radius: 8px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+}
+
+.error-box i {
+  font-size: 48px;
+  color: #dc3545;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.error-box h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.error-box p {
+  margin: 0 0 25px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.error-box .btn {
+  display: inline-flex;
+}
+
+@media (max-width: 768px) {
+  .edit-product-page {
+    padding: 15px;
+  }
+
+  .loading-container {
+    padding: 40px 20px;
+  }
+
+  .error-box {
+    padding: 30px 20px;
+  }
+
+  .error-box h2 {
+    font-size: 18px;
+  }
+
+  .error-box p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-container {
+    padding: 30px 15px;
+  }
+
+  .spinner-large {
+    width: 35px;
+    height: 35px;
+    border-width: 3px;
+  }
+
+  .loading-container p {
+    font-size: 12px;
+  }
+
+  .error-box {
+    padding: 20px 15px;
+  }
+
+  .error-box i {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .error-box h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .error-box p {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+}
