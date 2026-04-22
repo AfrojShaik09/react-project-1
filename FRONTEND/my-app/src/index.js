@@ -10,6 +10,7 @@ import CreateProduct from "./pages/admin/products/CreateProduct";
 import EditProduct from "./pages/admin/products/EditProduct";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./components/AuthContext";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
