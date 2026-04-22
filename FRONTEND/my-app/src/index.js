@@ -11,7 +11,7 @@ import EditProduct from "./pages/admin/products/EditProduct";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./components/AuthContext";
 import { Analytics } from "@vercel/analytics/react";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 function App() {
   return (
     <AuthProvider>
@@ -50,6 +50,7 @@ function App() {
         <Footer />
       </BrowserRouter>
       <Analytics />
+      <SpeedInsights />
     </AuthProvider>
   );
 }
