@@ -1,5 +1,7 @@
+import { API_BASE_URL } from "./api";
+
 export const updateProduct = async (id, updatedData) => {
-  const url = `${process.env.REACT_APP_API_URL}/api/products/${id}`;
+  const url = `${API_BASE_URL}/api/products/${id}`;
 
   try {
     const response = await fetch(url, {

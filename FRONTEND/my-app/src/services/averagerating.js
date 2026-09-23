@@ -1,5 +1,7 @@
+import { API_BASE_URL } from "./api";
+
 export const getAverageRatingService = async (vehicleId) => {
-  const url = `http://localhost:4000/api/user/AverageRating/${vehicleId}`;
+  const url = `${API_BASE_URL}/api/user/AverageRating/${vehicleId}`;
 
   try {
     const unFormattedResponse = await fetch(url);

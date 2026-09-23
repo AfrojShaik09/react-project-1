@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../components/AuthContext";
 import Button from "../components/common/Button";
+import { API_BASE_URL } from "../services/api";
 import "./Home.css";
 
 export default function Login() {
@@ -26,7 +27,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/login`,
+        `${API_BASE_URL}/api/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

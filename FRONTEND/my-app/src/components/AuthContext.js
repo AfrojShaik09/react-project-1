@@ -2,37 +2,20 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
+const decodeToken = (token) => {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (error) {
+    console.error("Error decoding token:", error);
+    return null;
+  }
+};
+
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [role, setRole] = useState(null);
   const [token, setToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  const decodeToken = (token) => {
-    try {
-      return JSON.parse(atob(token.split(".")[1]));
-    } catch (error) {
-      console.error("Error decoding token:", error);
-      return null;
-    }
-  };
-
-  const validateToken = () => {
-    const savedToken = localStorage.getItem("token");
-
-    if (savedToken) {
-      const payload = decodeToken(savedToken);
-      if (payload && Date.now() / 1000 < payload.exp) {
-        setIsAuthenticated(true);
-        setRole(payload.role);
-        setToken(savedToken);
-      } else {
-        console.warn("Token expired. Logging out...");
-        localStorage.removeItem("token");
-      }
-    }
-    setIsLoading(false);
-  };
 
   const login = (userData, token) => {
     setIsAuthenticated(true);
@@ -67,6 +50,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    const validateToken = () => {
+      const savedToken = localStorage.getItem("token");
+
+      if (savedToken) {
+        const payload = decodeToken(savedToken);
+        if (payload && Date.now() / 1000 < payload.exp) {
+          setIsAuthenticated(true);
+          setRole(payload.role);
+          setToken(savedToken);
+        } else {
+          console.warn("Token expired. Logging out...");
+          localStorage.removeItem("token");
+        }
+      }
+      setIsLoading(false);
+    };
+
     validateToken();
   }, []);
 

@@ -1,7 +1,9 @@
+import { API_BASE_URL } from "./api";
+
 export const handleAddProduct = async (data) => {
   console.log(data);
 
-  const url = `${process.env.REACT_APP_API_URL}/api/products`;
+  const url = `${API_BASE_URL}/api/products`;
 
   try {
     const unFormattedResponse = await fetch(url, {
